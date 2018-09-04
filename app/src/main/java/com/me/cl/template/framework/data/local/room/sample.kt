@@ -4,6 +4,7 @@
 //import android.arch.persistence.room.*
 //import android.os.Parcel
 //import android.os.Parcelable
+//todo add room and remove sample code
 //
 //@Entity(tableName = "cities")
 //data class City(

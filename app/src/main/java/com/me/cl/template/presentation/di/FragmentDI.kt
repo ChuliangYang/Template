@@ -1,18 +1,19 @@
 package com.me.cl.template.presentation.di
 
 import com.me.cl.template.framework.di.PerFragment
+import com.me.cl.template.presentation.ui.MainActivityFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Suppress("unused")
 @Module
-abstract class CityListFragmentSubComponentModule{
+abstract class MainActivityFragmentSubComponentModule{
     @PerFragment
-    @ContributesAndroidInjector(modules = [CityListFragmentModule::class])
-    abstract fun cityListFragmentInjector():CityListFragment
+    @ContributesAndroidInjector(modules = [MainActivityFragmentModule::class])
+    abstract fun cityListFragmentInjector(): MainActivityFragment
 }
 
 @Module
-abstract class CityListFragmentModule{
+abstract class MainActivityFragmentModule{
 
 }

@@ -1,9 +1,10 @@
 package com.me.cl.template.presentation.di
 
 import android.app.Application
-import android.arch.persistence.room.Room
 import com.me.cl.template.MyApplication
 import com.me.cl.template.framework.api.LiveDataCallAdapterFactory
+import com.me.cl.template.presentation.api.ApiService
+import com.me.cl.template.presentation.api.SERVER_HOST
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -20,10 +21,10 @@ class AppModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl(GIST_HOST).client(OkHttpClient.Builder().apply {
-            addNetworkInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BASIC
-            })
+        return Retrofit.Builder().baseUrl(SERVER_HOST).client(OkHttpClient.Builder().apply {
+//            addNetworkInterceptor(HttpLoggingInterceptor().apply {
+//                level = HttpLoggingInterceptor.Level.BASIC
+//            })
             addNetworkInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
@@ -32,15 +33,15 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideGistService(retrofit: Retrofit): GistService {
-        return retrofit.create(GistService::class.java)
+    fun provideGistService(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
     }
 
-    @Singleton
-    @Provides
-    fun provideRoomDataBase(application: Application): AppDatabase {
-        return Room.databaseBuilder(application, AppDatabase::class.java, "material-tab").build()
-    }
+//    @Singleton
+//    @Provides
+//    fun provideRoomDataBase(application: Application): AppDatabase {
+//        return Room.databaseBuilder(application, AppDatabase::class.java, "material-tab").build()
+//    }
 }
 
 @Singleton

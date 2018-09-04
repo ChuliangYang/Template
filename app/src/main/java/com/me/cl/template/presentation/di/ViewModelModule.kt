@@ -18,14 +18,6 @@ abstract class ViewModelModule{
     @Binds
     abstract fun bindViewModelFactory(factory: MyViewModelFactory): ViewModelProvider.Factory
 
-//    @Binds
-//    abstract fun bindCityLocalSource(cityLocalSourceImpl:CityLocalSourceImpl): CityLocalSource
-//    @Binds
-//    abstract fun bindCityRemoteSource(cityRemoteSourceImpl: CityRemoteSourceImpl): CityRemoteSource
-//    @Binds
-//    abstract fun bindCityTransformer(cityTransformerImpl: CityTransformerImpl): CityTransformer
-
-
 
     @Module
     companion object {
