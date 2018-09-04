@@ -1,6 +1,5 @@
 package com.me.cl.template.presentation.ui
 
-import android.arch.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.me.cl.template.R
 import com.me.cl.template.framework.di.Injectable
-import javax.inject.Inject
 
 
 class MainActivityFragment : Fragment(), Injectable {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+//    @Inject
+//    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

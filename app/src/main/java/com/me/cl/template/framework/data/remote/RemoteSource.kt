@@ -3,9 +3,6 @@ package com.me.cl.template.framework.data.remote
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MediatorLiveData
 import com.me.cl.template.framework.data.DataResource
-import com.me.cl.template.framework.data.NetworkResponse
-import com.me.cl.template.framework.data.ResponseFailed
-import com.me.cl.template.framework.data.ResponseSuccess
 import kotlinx.coroutines.experimental.async
 
 // Use local database as SSOT, local data will sync with remote data
@@ -67,9 +64,9 @@ abstract class RemoteSource<ResultType>{
         return response.result
     }
 
-    abstract fun obtainFromRemote(): LiveData<NetworkResponse<ResultType>>
     abstract fun obtainFromLocal(): LiveData<ResultType>
-    abstract fun saveRemoteResult(result:ResultType?)
     abstract fun needFetch(data:ResultType?):Boolean
+    abstract fun obtainFromRemote(): LiveData<NetworkResponse<ResultType>>
+    abstract fun saveRemoteResult(result:ResultType?)
 
 }

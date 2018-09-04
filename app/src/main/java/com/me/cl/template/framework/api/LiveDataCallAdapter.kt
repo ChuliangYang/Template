@@ -1,7 +1,7 @@
 package com.me.cl.template.framework.api
 
 import android.arch.lifecycle.LiveData
-import com.me.cl.template.framework.data.NetworkResponse
+import com.me.cl.template.framework.data.remote.NetworkResponse
 import retrofit2.*
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
