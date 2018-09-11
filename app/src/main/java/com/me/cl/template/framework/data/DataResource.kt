@@ -16,6 +16,10 @@ data class DataResource<out OriginalType>(val loadingStatus:DataStatus, val orig
             return DataResource(DataStatus.NULL,null,null)
         }
     }
+
+    fun isSuccess():Boolean{
+        return loadingStatus == DataStatus.SUCCESS
+    }
 }
 
 enum class DataStatus{
