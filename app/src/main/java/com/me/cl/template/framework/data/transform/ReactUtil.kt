@@ -5,6 +5,9 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.support.annotation.WorkerThread
 import com.me.cl.template.framework.data.DataResource
+import com.me.cl.template.framework.data.remote.NetworkResponse
+import com.me.cl.template.framework.data.remote.ResponseFailed
+import com.me.cl.template.framework.data.remote.ResponseSuccess
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
@@ -41,6 +44,23 @@ object ReactUtil {
                 DataResource.success(it)
             }?:let {
                 DataResource.Absent<T>()
+            }
+        }
+    }
+
+    fun <T> remoteToLiveDataResource(data:LiveData<NetworkResponse<T>>):LiveData<DataResource<T>>{
+        return Transformations.map(data) {
+            when(it){
+                is ResponseSuccess ->{
+                    DataResource.success(it.result)
+                }
+                is ResponseFailed ->{
+                    DataResource.failed(it.errorMessage)
+                }
+
+                else->{
+                    DataResource.failed("unknow error")
+                }
             }
         }
     }
